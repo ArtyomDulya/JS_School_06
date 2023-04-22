@@ -20,9 +20,39 @@ function findPallindrome(str) {
 
     return result == backResult;
 }
-console.log(findPallindrome(" Anna!!)"))
+// console.log(findPallindrome(" Anna!!)"))
 
 // 2. Если вы решали задачку со скобками без методов, то сейчас решите с методами.
+
+function isValid(s) {
+    const brackets = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    };
+
+    const st = [];
+    for (let i = 0; i < s.length; i++) {
+        if (isClosedBracket(s[i])) {
+            if (brackets[s[i]] !== st.pop()) return false;
+        } else {
+            st.push(s[i]);
+        }
+    }
+    return st.length === 0;
+}
+function isClosedBracket(ch) {
+    return [')', ']', '}'].indexOf(ch) > -1;
+}
+
+
+let bracket1 = [")", "{", "(", "(", ")", ")", "}", "[", "]", "("];
+let bracket2 = ["{", "(", "(", ")", ")", "}", "[", "]"];
+let bracket3 = ["{", "(", "(", ")", ")", "}", "[", "[", ")"];
+
+
+
+
 
 
 // Задачи с Codewars:
@@ -52,13 +82,35 @@ function sum(numbers) {
 
 function threeInOne(arr) {
 
-    let sum = 0;
-    let array = [];
-
-    for (let i = 0; i <= 3; i++) {
-        array = arr.slice();
+    let result = [];
+    for (let i = 0; i < arr.length; i += 3) {
+        const sum = (arr[i] || 0) + (arr[i + 1] || 0) + (arr[i + 2] || 0);
+        result.push(sum);
     }
-    return array;
+    return result;
 }
+
 arr = [1, 2, 2, 5, 5, 5, 9, 9, 9];
-console.log(threeInOne(arr));
+
+function stringy(size) {
+    let result = "";
+    for (let i = 0; i < size.length; i++) {
+        if (i % 2 == 0) {
+            result += "1";
+        } else {
+            result += "0";
+        }
+    }
+    return result;
+}
+
+console.log(stringy("hi"));
+
+
+function nthFibo(n) {
+    if (n <= 1) {
+        return n;
+      } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+    }

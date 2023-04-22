@@ -1,0 +1,25 @@
+.div1 {
+    background-color: blue;
+}
+.container > div{
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    margin: 15px;
+}
+
+.card:nth-child(3) {
+    background-color: blueviolet;
+}
+
+.container {
+    border: 5px solid black ;
+}
+
+#check {
+    display: none;
+}
+
+/* #cont {
+    background-color: aqua;
+} */
